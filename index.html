@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Header Analyzer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base */
+        html, body { height: 100%; margin: 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #000; /* pitch black base */
+            color: white;
+            text-align: center;
+            padding: 40px;
+            overflow-x: hidden;
+        }
+
+        /* Full-screen canvas for background animation */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Foreground content sits above the canvas */
+        h1, input, button, #result { position: relative; z-index: 1; }
+
+        /* Title: Cinzel font and larger */
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 56px;
+            margin-bottom: 12px;
+            color: #bfffbf;
+            letter-spacing: 0.6px;
+            text-shadow: 0 8px 24px rgba(0,255,128,0.06);
+        }
+
+        input {
+            width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.03);
+            color: #dfffdc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #0e7518;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        #result {
+            margin-top: 30px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(16,16,19,0.9);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .missing { color: #ef4444; }
+        .present { color: #22c55e; }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+    <h1>Security Header Analyzer</h1>
+
+    <input type="text" id="urlInput" placeholder="Enter https://example.com">
+    <button onclick="analyze()">Analyze</button>
+
+    <div id="result"></div>
+
+    <script type="module" src="/static/script.js"></script>
+    
+</body>
+</html>
